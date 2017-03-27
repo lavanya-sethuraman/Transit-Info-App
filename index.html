@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <title>Capstone Transit service</title>
+  <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="row">
+    <div class="col-6 entry">
+      <div>
+        <label for="origin">Start:  </label>
+        <input id="origin" type="text" placeholder="Enter start location">
+      </div>
+      <div>
+        <label for="destination">Destination:</label>
+        <input id="destination" type="text" placeholder="Enter end location">
+      </div>
+    </div>
+    <div class="col-6">
+      <div id="map" ></div>
+    </div>
+    <div class="col-6">
+      <div class="js-directions-result"></div>
+    </div>
+  </div>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQjGnEQ7WgK4Nu0AINtcKJBzRsGzk5K2c&libraries=places&callback=initMap"
+  async defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="main.js" charset="utf-8"></script>
+</body>
+</html>
