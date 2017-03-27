@@ -11,6 +11,9 @@
 #origin:focus,#destination:focus {
       border-color: #4d90fe;
     }
+    h1{
+      text-align: center;
+    }
 #map {
   margin-top:80px;
 height: 700px;
