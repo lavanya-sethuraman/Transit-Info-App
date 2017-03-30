@@ -1,5 +1,6 @@
 var origAddr =null;
 var destAddr =null;
+// Initiate Map
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 37,lng: -95},
@@ -7,6 +8,7 @@ function initMap() {
   });
   autocompleteLocations(map);
 }
+// Autocomplete Set-up on Inputs
 
 function autocompleteLocations(map){
   var orig = document.getElementById('origin');
@@ -16,6 +18,7 @@ function autocompleteLocations(map){
   autocompleteListener(autocompleteOrig,map,'SRC');
   autocompleteListener(autocompleteDest,map,'DEST');
 }
+// Set-up Listeners on autocomplete fields
 
 function autocompleteListener(autocomplete,map,type){
   autocomplete.bindTo('bounds', map);
@@ -43,7 +46,7 @@ function autocompleteListener(autocomplete,map,type){
     getTransitDetails(origAddr, destAddr);
   });
 }
-
+//Transit Details and rendering directions
 
 function getTransitDetails(origAddr, destAddr) {
   if(origAddr && destAddr)
@@ -67,58 +70,70 @@ function getTransitDetails(origAddr, destAddr) {
         directionsDisplay.setDirections(response);
         routes = response.routes;
         getDetails(routes);
-      }else {
+      } else
+      {
         window.alert('Directions request failed due to ' + status);
       }
     });
-
   }
-  else{
+  else
+  {
     return;
   }
 }
 
-function getDetails(routes) {
-  var i=routes.length;
-  routes.forEach(function(route) {
-    var legs = route.legs;
-    var optionHtml="";
-    var stepsHtml="";
-    legs.forEach(function(leg) {
-      var steps = leg.steps;
-      optionHtml='<div class="options"><p>Route Details : </p><ul><li> Leave At : ' + leg.departure_time.text + '</li>'+
-      '<li> Reach At : ' + leg.arrival_time.text + '</li><li> Steps : ' + steps.length + '</li></ul>'+
-      '<div class="steps hidden"><ol>';
+//Displaying Transit details
 
-      steps.forEach(function(step) {
-        var transit = step.transit;
-        var stepHtml='<li>Instructions : ' + step.instructions+
-        '<ul><li>  Step Distance: ' + step.distance.text + '</li>' +
-        '<li> Step Duration: ' + step.duration.text + '</li>';
-        if (transit !== undefined) {
-          stepHtml+='<li>Boarding Stop : ' + transit.departure_stop.name + '</li>'+
-          '<li>Destination Stop : ' + step.transit.arrival_stop.name+ '</li>'+
-          '<li>Boarding Time : '+ transit.departure_time.text + '</li>'+
-          '<li>Reaching Time : ' + transit.arrival_time.text + '</li>'+
-          '<li>Headsign : ' + transit.headsign + '</li>'+
-          '<li>Line Name  : ' + transit.line.name + '& Agency : '+ transit.line.agencies.map(function(item) {
-            return item.name;}) + '</li><li>Stop Number :'+ transit.num_stops + '</li>';
+function getDetails(routes) {
+  var optionNumber=1;
+  if(optionNumber <= routes.length){
+    routes.forEach(function(route) {
+      var legs = route.legs;
+      var optionHtml="";
+      var stepsHtml="";
+      legs.forEach(function(leg) {
+        var steps = leg.steps;
+        var imgIcon="";
+        steps.forEach(function(step) {
+          var n=step.instructions.search("rail");
+          var stepHtml="<li>";
+          if(step.travel_mode === 'WALKING'){
+            stepHtml='<img src="images/walk.png">';
+            imgIcon+='<img src="images/walk.png">'+' ';
+          }else{
+            if(n>0){
+              stepHtml='<img src="images/rail.png">';
+              imgIcon+='<img src="images/rail.png">';
+            }
+            else{
+              imgIcon+='<img src="images/bus.png">';
+              stepHtml='<img src="images/bus.png">';
+            }
           }
-          stepHtml+='</ul></li>';
-          stepsHtml+=stepHtml;
+          var transit = step.transit;
+          stepHtml+= step.instructions+'<p>'+step.distance.text +'-' + step.duration.text + '</p>' ;
+          if (transit !== undefined) {
+            stepHtml+='<p>Headsign : ' + transit.headsign + '</p><ul><li>'+ transit.departure_time.text +
+            '  Depart at '+ transit.departure_stop.name + '</li><li>'+transit.arrival_time.text +'  Arrive at  '+
+            step.transit.arrival_stop.name + '</li></ul>';
+          }
+          stepsHtml+=stepHtml+'<hr>';
         });
-        stepsHtml+='</ol>';
+        optionHtml='<div class="options"><p> Option : '+ optionNumber + '</p>'+ imgIcon +'<p>'+ leg.departure_time.text + ' to '+
+        leg.arrival_time.text +'</p><div class="steps hidden">';
         optionHtml+=stepsHtml;
       });
       optionHtml+='</div></div>';
       $('.js-directions-result').html(optionHtml);
     });
-    optionListeners();
+    optionNumber++;
   }
+  optionListeners();
+}
 
-  function optionListeners(){
-    $('.options').click(function(event){
-      event.stopPropagation();
-      $(this).find('.steps').toggleClass('hidden');
-    });
-  }
+function optionListeners(){
+  $('.options').click(function(event){
+    event.stopPropagation();
+    $(this).find('.steps').toggleClass('hidden');
+  });
+}

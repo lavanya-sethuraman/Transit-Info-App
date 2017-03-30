@@ -1,37 +1,82 @@
 <!DOCTYPE html>
-
 <head>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
   <title>Capstone Transit service</title>
   <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css-styles/style.css">
 </head>
+
 <body>
+  <div class="row top">
+    <div class="info2" >
+      <img src="images/rail.png">
+    </div>
 
-  <div class="row">
-      <h1>Get Transit Information Here!</h1>
-    <div class="col-6 entry">
-      <div>
-        <label for="origin">Start:  </label>
-        <input id="origin" type="text" placeholder="Enter start location">
-      </div>
-      <div>
-        <label for="destination">Destination:</label>
-        <input id="destination" type="text" placeholder="Enter end location">
-      </div>
+    <div class="train-timings">
+      <span>Train Hours:
+        <li>Weekdays 4:45AM-1AM</li>
+        <li>Weekends 6AM-1AM</li>
+      </span>
     </div>
-    <div class="col-6">
-      <div id="map" ></div>
-    </div>
-    <div class="col-6">
-      <div class="js-directions-result"></div>
-    </div>
-  </div>
 
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQjGnEQ7WgK4Nu0AINtcKJBzRsGzk5K2c&libraries=places&callback=initMap"
-  async defer></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script src="main.js" charset="utf-8"></script>
-</body>
-</html>
+    <div class="info1" >
+      <img src="images/bus.png">
+    </div>
+
+    <div class="bus-timings">
+      <span>Bus Hours:
+        <li>Weekdays 5AM-1AM</li>
+        <li>Weekends 5AM-12:30AM</li>
+      </span>
+    </div>
+
+    <div class="plan-trip">
+      <a href="#" ><h4>Plan A Trip</h4></a>
+    </div>
+
+    <div class=" why col-6">
+      <h1> Why use Public Transportation?</h1>
+    </div>
+
+    <div class=" about col-6">
+      <p> Do you know that the personal freedom of driving a car, often comes at a great cost
+        to our environment?</P>
+        <p>Studies have shown that public transportation use saves millions of hours of travel time,
+          millions of gallons of fuel and significantly reduces carbon emissions.</p>
+          <p>Are you tired of long-distance driving or even commute to office during the peak-hours?<p>
+            <p>Lets find out below our transit options for an upcoming travel or daily commute.</p>
+          </div>
+
+        </div>
+
+        <div class="row transit">
+
+          <h1>Get Transit Information Here!</h1>
+          <div class="col-6 col-1">
+            <div>
+              <form class="entry">
+                <label for="origin">Starting Point:</label>
+                <input id="origin" type="text" placeholder="Enter start location">
+              </input>
+              <label for="destination">Destination:</label>
+              <input id="destination" type="text" placeholder="Enter end location">
+            </input>
+          </form>
+        </div>
+
+        <div class="js-directions-result"></div>
+      </div>
+      
+      <div class="col-6 col-2">
+        <div id="map" ></div>
+      </div>
+    </div>
+    <<div class="row footer"></div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQjGnEQ7WgK4Nu0AINtcKJBzRsGzk5K2c&libraries=places&callback=initMap"
+    async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="js/main.js" charset="utf-8"></script>
+  </body>
+  </html>
