@@ -1,0 +1,173 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: rgba(135, 202, 250, 0.61);
+  font-family: 'Lora', serif;
+}
+/*.bg-image{
+position: absolute;
+top:0;
+left:0;
+right:0;
+width: 100%;
+opacity: 0.1;
+height:auto;
+}*/
+.row {
+  max-width: 1000px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+}
+.row::before,.row::after {
+  display: table;
+  content: '';
+}
+.row::after {
+  clear: both;
+}
+.top {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+  height: 500px;
+}
+.info1 , .info2 {
+  float: right;
+  width: : 53px;
+  height:53px;
+  margin-right: 25px;
+  cursor: pointer;
+}
+.info1 img, .info2 img{
+  width:53px;
+  height:53px;
+}
+.train-timings {
+  visibility: hidden;
+  font-size: 10px;
+  float: right;
+  margin-top: 57px;
+  margin-right: -133px;
+  margin-bottom: 7px;
+}
+.bus-timings {
+  visibility: hidden;
+  font-size: 10px;
+  float: right;
+  margin-top: 57px;
+  margin-right: -133px;
+  margin-bottom: 7px;
+}
+.row .top .info1 :hover .row .top .bus-timings {
+  visibility: visible;
+}
+.info2:hover .train-timings {
+  visibility: visible;
+}
+.plan-trip a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.plan-trip {
+  width:100px;
+  height:53px;
+  float:right;
+}
+.why {
+  margin:auto;
+  height:370px;
+  text-align: center;
+  font-family: 'Lora', serif;
+  font-size: 25px;
+  clear:both;
+}
+.col-6 {
+  float: left;
+  padding-left: 1.04166666%;
+  padding-right: 1.04166666%;
+}
+.about {
+  font-size: 20px;
+}
+.why>h1 {
+  margin-top: 150px;
+  text-align: center;
+}
+.col-1 {
+  border-style: ridge;
+}
+.entry {
+  padding-top:5px;
+  height:200px;
+}
+label {
+  width:280px;
+  font-weight: bold;
+  font-size:20px;
+  margin-bottom: 9px;
+  clear: both;
+  display:block;
+  padding-left: 10px;
+}
+#origin,#destination {
+  background-color: #fff;
+  height:30px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  font-size:20px;
+  margin-bottom: 20px;
+  width:280px;
+}
+#origin:focus,#destination:focus {
+  border-color: #4d90fe;
+}
+.js-directions-result {
+  font-weight: 300;
+  font-size: 20px;
+  height: 492px;
+  width: 460px;
+  display: inline-block;
+  overflow: scroll;
+}
+.hidden {
+  display: none;
+}
+.options {
+  padding: 20px;
+  margin-bottom:20px;
+  cursor: pointer;
+  background-color: white;
+  border-style: ridge;
+}
+img {
+  width:22px;
+  height:22px;
+}
+.steps {
+  marigin-top:5px;
+  border-top:solid;
+  border-color: rgba(158, 158, 158, 0.35);
+}
+#map {
+  height: 700px;
+  width:600px;
+  border-style: ridge;
+}
+.footer {
+  height:100px;
+}
+
+/* for mobile grid*/
+.col-6,.col-12{
+  width: 100%;
+}
+/* Non-mobile, grid */
+@media only screen and (min-width: 640px) {
+
+  .col-6 {
+    width: 50%;
+  }
