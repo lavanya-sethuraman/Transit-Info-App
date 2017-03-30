@@ -38,32 +38,27 @@ height:auto;
   width: : 53px;
   height:53px;
   margin-right: 25px;
-  cursor: pointer;
 }
 .info1 img, .info2 img{
   width:53px;
   height:53px;
 }
-.train-timings {
+.train-timings , .bus-timings {
   visibility: hidden;
-  font-size: 10px;
+  font-size: 12px;
   float: right;
   margin-top: 57px;
   margin-right: -133px;
   margin-bottom: 7px;
+  background-color: rgba(119, 136, 153, 0.18);
 }
-.bus-timings {
-  visibility: hidden;
-  font-size: 10px;
-  float: right;
-  margin-top: 57px;
-  margin-right: -133px;
-  margin-bottom: 7px;
+.bus-timings li ,.train-timings li{
+  list-style: none;
 }
-.row .top .info1 :hover .row .top .bus-timings {
+.info1:hover + .bus-timings {
   visibility: visible;
 }
-.info2:hover .train-timings {
+.info2:hover + .train-timings {
   visibility: visible;
 }
 .plan-trip a {
