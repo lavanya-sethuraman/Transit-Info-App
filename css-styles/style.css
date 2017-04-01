@@ -5,15 +5,6 @@ body {
   background-color: rgba(135, 202, 250, 0.61);
   font-family: 'Lora', serif;
 }
-/*.bg-image{
-position: absolute;
-top:0;
-left:0;
-right:0;
-width: 100%;
-opacity: 0.1;
-height:auto;
-}*/
 .row {
   max-width: 1000px;
   padding-left: 20px;
@@ -33,34 +24,6 @@ height:auto;
   margin: 0 auto;
   height: 500px;
 }
-.info1 , .info2 {
-  float: right;
-  width: : 53px;
-  height:53px;
-  margin-right: 25px;
-}
-.info1 img, .info2 img{
-  width:53px;
-  height:53px;
-}
-.train-timings , .bus-timings {
-  visibility: hidden;
-  font-size: 12px;
-  float: right;
-  margin-top: 57px;
-  margin-right: -133px;
-  margin-bottom: 7px;
-  background-color: rgba(119, 136, 153, 0.18);
-}
-.bus-timings li ,.train-timings li{
-  list-style: none;
-}
-.info1:hover + .bus-timings {
-  visibility: visible;
-}
-.info2:hover + .train-timings {
-  visibility: visible;
-}
 .plan-trip a {
   text-decoration: none;
   color: inherit;
@@ -71,6 +34,10 @@ height:auto;
   height:53px;
   float:right;
 }
+.plan-trip h4 {
+  background: aliceblue;
+  width:84px;
+}
 .why {
   margin:auto;
   height:370px;
@@ -79,7 +46,7 @@ height:auto;
   font-size: 25px;
   clear:both;
 }
-.col-6 {
+.col-6 , .col-4 , .col-8 {
   float: left;
   padding-left: 1.04166666%;
   padding-right: 1.04166666%;
@@ -93,10 +60,11 @@ height:auto;
 }
 .col-1 {
   border-style: ridge;
+  height: 700px;
 }
 .entry {
   padding-top:5px;
-  height:200px;
+  height:175px;
 }
 label {
   width:280px;
@@ -123,17 +91,17 @@ label {
 .js-directions-result {
   font-weight: 300;
   font-size: 20px;
-  height: 492px;
-  width: 460px;
+  height: 519px;
+  width: 302px;
   display: inline-block;
   overflow: scroll;
 }
+
 .hidden {
   display: none;
 }
 .options {
-  padding: 20px;
-  margin-bottom:20px;
+  padding: 10px;
   cursor: pointer;
   background-color: white;
   border-style: ridge;
@@ -149,15 +117,16 @@ img {
 }
 #map {
   height: 700px;
-  width:600px;
-  border-style: ridge;
+  width:630px;
+ border-style: ridge;
 }
+
 .footer {
   height:100px;
 }
 
 /* for mobile grid*/
-.col-6,.col-12{
+.col-6,.col-12,.col-4,.col-8{
   width: 100%;
 }
 /* Non-mobile, grid */
@@ -166,3 +135,9 @@ img {
   .col-6 {
     width: 50%;
   }
+  .col-4 {
+    width:33.3333333%;
+  }
+.col-8 {
+  width:66.6666666%;
+}
