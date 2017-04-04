@@ -24,6 +24,7 @@ body {
   margin: 0 auto;
   height: 500px;
 }
+
 .plan-trip a {
   text-decoration: none;
   color: inherit;
@@ -96,7 +97,6 @@ label {
   display: inline-block;
   overflow: scroll;
 }
-
 .hidden {
   display: none;
 }
