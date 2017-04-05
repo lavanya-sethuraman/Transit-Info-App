@@ -96,7 +96,7 @@ function getDetails(routes) {
         var imgIcon="";
         steps.forEach(function(step) {
           var n=step.instructions.search("rail");
-          var stepHtml="<li>";
+          var stepHtml="";
           if(step.travel_mode === 'WALKING'){
             stepHtml='<img src="images/walk.png">';
             imgIcon+='<img src="images/walk.png">'+' ';
@@ -111,7 +111,7 @@ function getDetails(routes) {
             }
           }
           var transit = step.transit;
-          stepHtml+= step.instructions+'<p>'+step.distance.text +'-' + step.duration.text + '</p>' ;
+          stepHtml+= '  '+step.instructions+'<p>'+step.distance.text +'-' + step.duration.text + '</p>' ;
           if (transit !== undefined) {
             stepHtml+='<p>Headsign : ' + transit.headsign + '</p><ul><li>'+ transit.departure_time.text +
             '  Depart at '+ transit.departure_stop.name + '</li><li>'+transit.arrival_time.text +'  Arrive at  '+
@@ -121,7 +121,7 @@ function getDetails(routes) {
         });
         optionHtml='<div class="options"><p> Option : '+ optionNumber + '</p>'+ imgIcon +'<p>'+ leg.departure_time.text + ' to '+
         leg.arrival_time.text +'</p><div class="steps hidden">';
-        optionHtml+=stepsHtml;
+        optionHtml+='<hr>'+stepsHtml;
       });
       optionHtml+='</div></div>';
       $('.js-directions-result').html(optionHtml);

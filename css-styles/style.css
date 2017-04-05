@@ -22,7 +22,6 @@ body {
   padding-left: 20px;
   padding-right: 20px;
   margin: 0 auto;
-  height: 500px;
 }
 
 .plan-trip a {
@@ -47,7 +46,7 @@ body {
   font-size: 25px;
   clear:both;
 }
-.col-6 , .col-4 {
+.col-6 , .col-4 , .col-8 {
   float: left;
   padding-left: 1.04166666%;
   padding-right: 1.04166666%;
@@ -57,34 +56,29 @@ body {
 }
 .why>h1 {
   margin-top: 150px;
-  text-align: center;
 }
-.col-1 {
-  border-style: ridge;
-  height: 700px;
+h1 {
+  text-align: center;
 }
 .entry {
   padding-top:5px;
   height:175px;
 }
 label {
-  width:280px;
+  width:90%;
   font-weight: bold;
   font-size:20px;
   margin-bottom: 9px;
   clear: both;
   display:block;
-  padding-left: 10px;
 }
 #origin,#destination {
   background-color: #fff;
-  height:30px;
   font-weight: 300;
-  margin-left: 12px;
   padding: 0 11px 0 13px;
   font-size:20px;
   margin-bottom: 20px;
-  width:280px;
+  width:90%;
 }
 #origin:focus,#destination:focus {
   border-color: #4d90fe;
@@ -95,6 +89,7 @@ label {
   height: 519px;
   display: inline-block;
   overflow: scroll;
+  width:100%;
 }
 .hidden {
   display: none;
@@ -103,7 +98,7 @@ label {
   padding: 10px;
   cursor: pointer;
   background-color: white;
-  border-style: ridge;
+  width:100%;
 }
 img {
   width:22px;
@@ -111,12 +106,9 @@ img {
 }
 .steps {
   marigin-top:5px;
-  border-top:solid;
-  border-color: rgba(158, 158, 158, 0.35);
 }
 #map {
   height: 700px;
- border-style: ridge;
 }
 
 .footer {
@@ -124,17 +116,20 @@ img {
 }
 
 /* for mobile grid*/
-.col-4{
+.col-6{
   width: 100%;
 }
-.col-6{
+.col-8,.col-4{
   width: 90%;
 }
 /* Non-mobile, grid */
 @media only screen and (min-width: 640px) {
 
-  .col-6 {
-    width: 50%;
+.col-6 {
+  width: 50%;
+}
+  .col-8 {
+    width: 66.66666%;
   }
   .col-4 {
     width:33.3333333%;
