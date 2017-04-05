@@ -47,7 +47,7 @@ body {
   font-size: 25px;
   clear:both;
 }
-.col-6 , .col-4 , .col-8 {
+.col-6 , .col-4 {
   float: left;
   padding-left: 1.04166666%;
   padding-right: 1.04166666%;
@@ -93,7 +93,6 @@ label {
   font-weight: 300;
   font-size: 20px;
   height: 519px;
-  width: 302px;
   display: inline-block;
   overflow: scroll;
 }
@@ -117,7 +116,6 @@ img {
 }
 #map {
   height: 700px;
-  width:630px;
  border-style: ridge;
 }
 
@@ -126,8 +124,11 @@ img {
 }
 
 /* for mobile grid*/
-.col-6,.col-12,.col-4,.col-8{
+.col-4{
   width: 100%;
+}
+.col-6{
+  width: 90%;
 }
 /* Non-mobile, grid */
 @media only screen and (min-width: 640px) {
@@ -138,6 +139,5 @@ img {
   .col-4 {
     width:33.3333333%;
   }
-.col-8 {
-  width:66.6666666%;
+
 }
