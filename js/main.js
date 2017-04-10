@@ -1,5 +1,5 @@
-var origAddr =null;
-var destAddr =null;
+var origAddr ;
+var destAddr ;
 // Initiate Map
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -27,11 +27,14 @@ function autocompleteListener(autocomplete,map,type){
     map: map,
     anchorPoint: new google.maps.Point(0, -29)
   });
+  origAddr =null;
+  destAddr =null;
   autocomplete.addListener('place_changed', function() {
     marker.setVisible(false);
     var place = autocomplete.getPlace();
     if (!place.geometry) {
-      window.alert("No details available for input: '" + place.name + "'");
+      var messageHtml='<div class="options"><p>Sorry! There are no results for this input. Please choose one from the list.</p></div>';
+      $('.js-directions-result').html(messageHtml);
       return;
     }
     map.setCenter(place.geometry.location);
@@ -49,6 +52,10 @@ function autocompleteListener(autocomplete,map,type){
 //Transit Details and rendering directions
 
 function getTransitDetails(origAddr, destAddr) {
+  if(origAddr === destAddr){
+    var messageHtml='<div class="options"><p>Origin and Destination are same.</p></div>';
+    $('.js-directions-result').html(messageHtml);
+  }
   if(origAddr && destAddr)
   {
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -72,7 +79,8 @@ function getTransitDetails(origAddr, destAddr) {
         getDetails(routes);
       } else
       {
-        window.alert('Directions request failed due to ' + status);
+        var messageHtml='<div class="options"><p>Sorry! There are no results for that search. Please try again.</p></div>';
+        $('.js-directions-result').html(messageHtml);
       }
     });
   }
@@ -85,8 +93,6 @@ function getTransitDetails(origAddr, destAddr) {
 //Displaying Transit details
 
 function getDetails(routes) {
-  var optionNumber=1;
-  if(optionNumber <= routes.length){
     routes.forEach(function(route) {
       var legs = route.legs;
       var optionHtml="";
@@ -119,15 +125,14 @@ function getDetails(routes) {
           }
           stepsHtml+=stepHtml+'<hr>';
         });
-        optionHtml='<div class="options"><p> Option : '+ optionNumber + '</p>'+ imgIcon +'<p>'+ leg.departure_time.text + ' to '+
+        optionHtml='<div class="options"><p>First available option : </p>'+ imgIcon +'<p>'+ leg.departure_time.text + ' to '+
         leg.arrival_time.text +'</p><div class="steps hidden">';
         optionHtml+='<hr>'+stepsHtml;
       });
       optionHtml+='</div></div>';
-      $('.js-directions-result').html(optionHtml);
+
+    $('.js-directions-result').html(optionHtml);
     });
-    optionNumber++;
-  }
   optionListeners();
 }
 
