@@ -61,8 +61,7 @@ footer {
   display: none;
 }
 .options {
-  padding: 20px;
-  margin-bottom:20px;
+  padding: 10px;
   cursor: pointer;
   border-style: ridge;
   background-color: white;
