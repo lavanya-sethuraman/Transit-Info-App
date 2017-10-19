@@ -5,14 +5,22 @@ body {
   font-family: 'Lora', serif;
 }
 .hero .jumbotron {
+  background: inherit;
+  height: 45em;
+  text-align: center;
+  color:black;
+}
+.title {
+  background-color: rgba(25, 123, 193, 0.47)
+}
+.hero {
   background-image: url(../images/train.jpg);
-  height: 43em;
   background-size: cover;
   background-position: center;
   text-align: center;
   opacity: .7;
-  color:black;
 }
+
 .hero .jumbotron .jumboName {
   margin-top: 4rem;
   color: black;
@@ -27,35 +35,43 @@ body {
   font-weight: bold;
   
 }
-#why h1{
+#why h1 {
   margin-bottom: 50px;
 }
-#why p{
+
+#why p {
   text-align: left;
   font-size: 20px;
 }
-.container{
+
+.container {
   text-align: center;
   line-height: 1.37;
 }
+
 .jumbotron {
   background-color:rgba(25, 123, 193, 0.77);
 }
- 
+#transit, #why{
+  margin-top:75px;
+}
+ #transit h1{
+    margin-bottom: 50px;
+ }
 footer {
   background-color: rgba(25, 123, 193, 0.77);
   margin-top: 8rem;
   color:white;
   text-align: center;
-  margin-bottom: -3rem;
   font-size: 0.7rem;
+  height:56px;
 }
 
 .js-directions-result {
   text-align: left;
   font-size: 20px;
   height: 300px;
-  overflow: scroll !important;
+  overflow: scroll;
 }
 .hidden {
   display: none;
@@ -75,6 +91,7 @@ img {
   border-top:solid;
   border-color: rgba(158, 158, 158, 0.35);
 }
+
  #map {
   height: 250px;
   border-style: ridge;
